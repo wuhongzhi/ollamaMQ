@@ -88,6 +88,8 @@ async fn main() {
         .route("/api/embed", post(proxy_handler))
         .route("/api/generate", post(proxy_handler))
         .route("/api/chat", post(proxy_handler))
+        .route("/v1/models", get(proxy_handler))
+        .route("/v1/embeddings", post(proxy_handler))
         .route("/v1/chat/completions", post(proxy_handler))
         .route("/v1/completions", post(proxy_handler))
         .layer(axum::extract::DefaultBodyLimit::max(50 * 1024 * 1024))
